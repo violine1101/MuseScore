@@ -489,6 +489,7 @@ MenuItem* AppMenuModel::makeDiagnosticsMenu()
 
         MenuItemList autobotItems {
             makeMenuItem("autobot-show-scripts"),
+            makeMenuItem("show-invisible")
         };
 
         MenuItemList vstItems {
@@ -775,6 +776,10 @@ MenuItemList AppMenuModel::makePluginsItems()
 
     for (MenuItem* plugin : pluginsWithoutCategories) {
         result << plugin;
+    }
+
+    if (result.empty()) {
+        result << makeMenuItem("show-invisible");
     }
 
     return result;
